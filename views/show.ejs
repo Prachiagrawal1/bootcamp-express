@@ -1,0 +1,96 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #customers {
+            font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        #customers td,
+        #customers th {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        #customers tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        #customers tr:hover {
+            background-color: #ddd;
+        }
+
+        #customers th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: #4CAF50;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <table id="customers">
+        <thead>
+            <th>Title</th>
+            <th>description</th>
+            <th>enddate</th>
+            <th>status</th>
+            <th>update</th>
+            <th></th>
+
+        </thead>
+        <tbody>
+            <% tasklist.forEach(function(task){ %>
+            <tr>
+                <td class="title"><%= task.title %></td>
+                <td class="desc"><%= task.description %></td>
+                <td class="edate"><%= task.endDate %></td>
+                <td class="status"><%= task.status %></td>
+                <td class="updated"><%= task.updated %></td>
+                <td>
+                    <a href='/edit/<%=task.id%>' class="edit">Edit</a>
+                </td>
+            </tr>
+
+            <% }); %>
+        </tbody>
+    </table>
+    <br>
+    <br>
+
+    <script>
+        var edit_btns = document.querySelectorAll('.edit')
+
+        edit_btns.forEach((atag, counter) => {
+            atag.addEventListener('click', event => {
+                event.preventDefault()
+
+                var tr = document.querySelectorAll('tr')[counter+1]
+                var title = tr.querySelector('.title')
+                var desc = tr.querySelector('.desc')
+                var edate = tr.querySelector('.edate')
+                var status = tr.querySelector('.status')
+                var updated = tr.querySelector('.updated')
+
+                title.innerHTML = `<input type='text' value=${title.innerText}>`
+                desc.innerHTML = `<input type='text' value=${desc.innerText}>`
+                edate.innerHTML = `<input type='text' value=${edate.innerText}>`
+                status.innerHTML = `<input type='text' value=${status.innerText}>`
+                updated.innerHTML = `<input type='text' value=${updated.innerText}>`
+
+            })
+        })
+
+    </script>
+</body>
+
+</html>
