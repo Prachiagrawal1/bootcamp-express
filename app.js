@@ -17,7 +17,7 @@ mongoose.Promise = global.Promise;
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function () {
-  console.log("Hiyya, we are connected!");
+  console.log("Hiyya, we are connected!!!");
 });
 
 var app = express();
