@@ -4,7 +4,7 @@ var Schema = mongoose.Schema;
 var taskSchema = new Schema({
     title: String,
     description: String,
-    status: { type: Boolean, dafault :false},
+    status: { type: Boolean, default :false},
     endDate: Date,
     updated: {type: Date ,default : Date.now()}
 });

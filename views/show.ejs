@@ -81,12 +81,14 @@
                 var status = tr.querySelector('.status')
                 var updated = tr.querySelector('.updated')
 
-                title.innerHTML = `<input type='text' value=${title.innerText}>`
-                desc.innerHTML = `<input type='text' value=${desc.innerText}>`
-                edate.innerHTML = `<input type='text' value=${edate.innerText}>`
-                status.innerHTML = `<input type='text' value=${status.innerText}>`
-                updated.innerHTML = `<input type='text' value=${updated.innerText}>`
+                var fedate = new Date(edate.innerText).toISOString().substr(0,10)
+                var fupdated = new Date(updated.innerText).toISOString().substr(0,10)
 
+                title.innerHTML = `<input type='text' value='${title.innerText}'>`
+                desc.innerHTML = `<input type='text' value='${desc.innerText}'>`
+                edate.innerHTML = `<input type='date' value='${fedate}'>`
+                status.innerHTML = `<input type='text' value='${status.innerText}'>`
+                updated.innerHTML = `<input type='date' value='${fupdated}'>`
             })
         })
 
