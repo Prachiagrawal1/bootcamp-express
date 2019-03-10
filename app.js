@@ -10,7 +10,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
 var mongoose = require('mongoose');
-var Task = require("../bootcamp-web/models/Task");
+var Task = require("./models/Task");
 mongoose.connect('mongodb://localhost/test');
 mongoose.Promise = global.Promise;
 
